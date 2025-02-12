@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="email" name="email" id="useremail">
+        <input type="button" id="btn">
+    </form>
+    <script>
+        let h=document.getElementById('btn')
+        h.addEventListener('click',data)
+        function data(e)
+        {
+            const useremail=document.getElementById('useremail').value;
+        const email={
+            email:useremail
+        };
+            e.preventDefault();
+            fetch("",{
+                method:'POST',
+                headers:{
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+        }
+    </script>
+</body>
+</html>
